@@ -1,0 +1,28 @@
+// дети будут наследовать эти св-ва от body
+body{
+    font-family: "Roboto";
+    font-style: normal;
+    font-size: 16px;
+    font-weight: 400;
+    color: $gray-color;
+    letter-spacing: 2px; // fix
+    padding: 50px;
+    background-color: $white-color;
+}
+
+.container{
+    background-color: $bg-color;
+    height: 500px; // fix
+    width: 100%;
+}
+.header{
+    position: relative;
+    height: 95vh;
+    background: linear-gradient(90deg, rgba(186, 133, 84, 0.7) 0.03%, rgba(1, 1, 1, 0.7) 99.94%),  url('../images/header-background.jpg') center/cover no-repeat;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+    &__logo{
+        position: absolute;
+        top: 50px;
+        left: 50px;
+    }
+}
