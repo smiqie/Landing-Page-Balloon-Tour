@@ -1,28 +1,152 @@
 // дети будут наследовать эти св-ва от body
 body{
-    font-family: "Roboto";
+    font-family: "Roboto", sans-serif; // sans-serif делаем шрифт без засечек
     font-style: normal;
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: 400;
     color: $gray-color;
-    letter-spacing: 2px; // fix
-    padding: 50px;
+    letter-spacing: 0.2rem; // fix
+    padding: 5rem;
     background-color: $white-color;
 }
-
+*, ::after, ::before{
+    box-sizing: border-box;
+}
+html{
+    font-size: 10px;
+}
 .container{
     background-color: $bg-color;
-    height: 500px; // fix
+    height: 50rem; // fix
     width: 100%;
 }
 .header{
     position: relative;
-    height: 95vh;
+    height: 95vh; // !
     background: linear-gradient(90deg, rgba(186, 133, 84, 0.7) 0.03%, rgba(1, 1, 1, 0.7) 99.94%),  url('../images/header-background.jpg') center/cover no-repeat;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
     &__logo{
         position: absolute;
-        top: 50px;
-        left: 50px;
+        top: 5rem;
+        left: 5rem;
+    }
+    &__box{
+        // ЦЕНТРИРОВАНИЕ ЭЛЕМЕНТА У КОТОРОГО НЕ ЗНАЕМ РАЗМЕРЫ
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+}
+.title-first{
+    color: $white-color;
+    margin-bottom: 6.5rem;
+    &__main{
+        font-size: 5rem;
+        font-weight: 800;
+        letter-spacing: 1rem;
+        line-height: 6rem;
+        display: block;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        animation-name: leftToRight;
+        animation-duration: 1.7s;
+        animation-timing-function: ease;
+        animation-delay: 1s;
+        backface-visibility: hidden;
+    }
+    &__secondary{
+        font-size: 4rem;
+        font-weight: 100;
+        letter-spacing: 0.5rem;
+        line-height: 4.8rem;
+        display: block;
+        animation-name: rightToLeft;
+        animation-duration: 1.7s;
+        animation-timing-function: ease;
+        animation-delay: 1s;
+        backface-visibility: hidden;
+    }
+}
+.btn{
+    &--animated{
+        animation-name: btnToUp;
+        animation-duration: 1.7s;
+        animation-timing-function: ease-out;
+        animation-delay: 1s;
+        backface-visibility: hidden;
+        animation-fill-mode: backwards;
+    }
+    &:link, &:visited{
+        font-size: 2rem;
+        text-decoration: none;
+        background-color: white;
+        color: $gray-color;
+        border-radius: 5rem;
+        padding: 1.5rem 4rem;
+        display: inline-block;
+        transition: all .3s;
+        position: relative;
+    }
+    &:hover{
+        transform: translateY(-0.4rem);
+        box-shadow: 0px 4px 4px rgb(0 0 0 / 0.3);
+        &::after{ // прикручиваем к нашему псевдлокламсму псевдожэлемент
+            opacity: 0;
+            transform: scaleX(1.5) scaleY(1.7);
+        }
+    }
+    &:active{
+        transform: translateY(-0.2rem);
+        box-shadow: 0px 4px 4px rgb(0 0 0 / 0.1);
+    }
+    &::after{ // создаем подобие заднего фона кнопки (без текста)_
+        content: "";
+        background-color: white;
+        border-radius: 5rem;
+        width: 100%; //!
+        height: 100%; //!
+        display: inline-block; // доложен ьыть точно такимже как родитель
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        transition: all .4s;
+    }
+}
+@keyframes btnToUp{
+    0%{
+        opacity: 0;
+        transform: translateY(5rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0rem);
+    }
+}
+@keyframes leftToRight{
+    0%{
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+    80%{
+        transform: translateX(1rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0rem);
+    }
+}
+@keyframes rightToLeft{
+    0%{
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+    80%{
+        transform: translateX(-1rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0rem);
     }
 }

@@ -1,12 +1,30 @@
 $gray-color: #777;
 $bg-color: #f7f7f7;
-$white-color: #ffffff;
+$white-color: #fff;
 
 @font-face {
     font-family: "Roboto";
     src: url('../fonts/Roboto-Regular.ttf') format('truetype');
     src: local('Roboto-Regular');
     font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url('../fonts/Roboto-ExtraBold.ttf') format('truetype');
+    src: local('Roboto-ExtraBold');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url('../fonts/Roboto-Thin.ttf') format('truetype');
+    src: local('Roboto-Thin');
+    font-weight: 100;
     font-style: normal;
     font-display: swap;
 }
